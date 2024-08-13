@@ -33,4 +33,3 @@ Follow these instructions to set up and run the project locally.
 
    ```bash
    git clone https://github.com/HafizAhmed223/AI4LYF-MyApp.git
-   ```
