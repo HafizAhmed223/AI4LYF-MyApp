@@ -1,4 +1,3 @@
-// src/pages/Dashboard.js
 import React from "react";
 import Slider from "react-slick";
 import Card12 from "../components/Card12";
@@ -26,31 +25,35 @@ const carouselSettings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 3,
+  slidesToShow: 4, // Number of slides to show at a time
+  slidesToScroll: 1, // Number of slides to scroll at a time
   responsive: [
     {
       breakpoint: 1200,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 3, // Show 3 slides on medium screens
+        slidesToScroll: 1, // Scroll 1 slide at a time
       },
     },
     {
       breakpoint: 1000,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 2, // Show 2 slides on smaller screens
+        slidesToScroll: 1, // Scroll 1 slide at a time
       },
     },
     {
       breakpoint: 800,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 2, // Show 2 slides on mobile screens
+        slidesToScroll: 1, // Scroll 1 slide at a time
       },
     },
     {
       breakpoint: 720,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 1, // Show 1 slide on very small screens
+        slidesToScroll: 1, // Scroll 1 slide at a time
       },
     },
   ],
@@ -58,16 +61,17 @@ const carouselSettings = {
 
 function Dashboard() {
   return (
-    <div className="w-full h-screen p-6">
-      <div className="p-3 flex flex-col">
-        <h1 className="text-[20px] font-[500] text-[#051237]">Mike Jani</h1>
-        <p className="text-[14px] font-[400] text-[#181818]">
-          Hi Doctor, Take a look at your patients' activities
+    <div className="w-full min-h-screen p-6 bg-gray-100">
+      <header className="flex flex-col mb-6">
+        <h1 className="text-2xl font-semibold text-gray-900">Mike Jani</h1>
+        <p className="text-sm font-medium text-gray-600">
+          Hi Doctor, take a look at your patients' activities
         </p>
-      </div>
-      <div className="mt-6 p-6">
-        <Slider {...carouselSettings}>
-          <div className="">
+      </header>
+
+      <section className="mb-6">
+        <Slider {...carouselSettings} className="p-3">
+          <div className="p-2">
             <Card12
               iconSrc={PatientsIcon}
               title="All Patients"
@@ -76,7 +80,7 @@ function Dashboard() {
               legendItems={legendItems}
             />
           </div>
-          <div className="">
+          <div className="p-2">
             <Card12
               iconSrc={ActivePatientsIcon}
               title="Active Patients"
@@ -85,7 +89,7 @@ function Dashboard() {
               legendItems={legendItems}
             />
           </div>
-          <div className="">
+          <div className="p-2">
             <Card34
               iconSrc={NewRegIcon}
               title="New Registrations"
@@ -96,7 +100,7 @@ function Dashboard() {
               trendDirection="up"
             />
           </div>
-          <div className="">
+          <div className="p-2">
             <Card34
               iconSrc={PrevAppIcon}
               title="Previous Appointments"
@@ -106,15 +110,15 @@ function Dashboard() {
               trendDirection="down"
             />
           </div>
-          <div className="">
+          <div className="p-2">
             <Card56
               iconSrc={AppTodayIcon}
-              title="Appoinments Today"
+              title="Appointments Today"
               value="12"
               legendItems={legendItems}
             />
           </div>
-          <div className="">
+          <div className="p-2">
             <Card56
               iconSrc={UpcomingAppIcon}
               title="Upcoming Appointments"
@@ -123,8 +127,9 @@ function Dashboard() {
             />
           </div>
         </Slider>
-      </div>
-      <section className="mt-4">
+      </section>
+
+      <section className="mt-4 bg-white shadow rounded-lg p-4">
         <PatientTable />
       </section>
     </div>
